@@ -1,0 +1,114 @@
+teachers = [
+    {
+        "name": "Emy",
+        "age": 23,
+        "direction": ("PHP")
+    },
+
+    {
+        "name": "Lee",
+        "age": 23,
+        "direction": ("JS")
+    },
+
+    {
+        "name": "Duke",
+        "age": 23,
+        "direction": ("HTML", "Python")
+    },
+
+    {
+        "name": "Peace",
+        "age": 23,
+        "direction": ("CSS" , "PHP")
+    },
+]
+
+students = [
+    {
+        "name" : "John",
+        "age" : 23 ,
+        "skills" : [
+            "HTML" , "CSS" , "JS"
+        ]
+    },
+
+    {
+        "name": "Bob",
+        "age": 13,
+        "skills": [
+            "HTML", "CSS"
+        ]
+    },
+
+    {
+        "name": "Jack",
+        "age": 34,
+        "skills": [
+            "HTML", "CSS", "JS" ,"PHP"
+        ]
+    },
+
+    {
+        "name": "Martin",
+        "age": 90,
+        "skills": [
+            "HTML", "CSS", "JS", "PHP", "Python"
+        ]
+    },
+
+    {
+        "name": "Corey",
+        "age": 90,
+        "skills": [
+            "JS"
+        ]
+    },
+]
+
+#Task 1
+#Option 1
+def adult_students():
+    n = 0
+    student_list = []
+    while n < len(students):
+        if students[n]["age"] > 18:
+            student_list.append(students[n]["name"])
+        n = n + 1
+    print(student_list)
+adult_students()
+
+#Option 2
+def adult_student_list():
+    adult_student_list = list(filter(lambda x: x["age"] > 18, students))
+    print(adult_student_list)
+adult_student_list()
+
+#Task 2
+#Option 1
+def JS_students():
+    n = 0
+    student_list = []
+    while n < len(students):
+        if "JS" in students[n]["skills"]:
+            student_list.append(students[n]["name"])
+        n = n + 1
+    print(student_list)
+    return student_list
+JS_students()
+
+#Option 2
+def JS_student_list():
+    JS_student_list = list(filter(lambda x: "JS" in x["skills"], students))
+    print(JS_student_list)
+JS_student_list()
+
+#Task 3
+def find_JS_teacher():
+    n = 0
+    while n < len(teachers):
+        if "JS" in teachers[n]["direction"]:
+            teachers[n]["students"] = JS_students()
+        n = n + 1
+    print(teachers)
+find_JS_teacher()
